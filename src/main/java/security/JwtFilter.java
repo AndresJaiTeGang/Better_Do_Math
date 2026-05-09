@@ -23,12 +23,12 @@ public class JwtFilter implements ContainerRequestFilter {
     public void filter(ContainerRequestContext requestContext)
             throws IOException {
 
-        String authHeader =
-                requestContext.getHeaderString(
+        String authHeader
+                = requestContext.getHeaderString(
                         HttpHeaders.AUTHORIZATION);
 
-        if(authHeader == null ||
-           !authHeader.startsWith("Bearer ")) {
+        if (authHeader == null
+                || !authHeader.startsWith("Bearer ")) {
 
             requestContext.abortWith(
                     jakarta.ws.rs.core.Response
@@ -38,31 +38,23 @@ public class JwtFilter implements ContainerRequestFilter {
             return;
         }
 
-        String token =
-                authHeader.replace("Bearer ", "");
+        String token
+                = authHeader.replace("Bearer ", "");
 
         try {
+            Claims claims = Jwts.parser()
+                    .verifyWith(JwtUtil.KEY)
+                    .build()
+                    .parseSignedClaims(token)
+                    .getPayload();
 
-            Claims claims =
-                    Jwts.parser()
-                            .verifyWith(JwtUtil.KEY)
-                            .build()
-                            .parseSignedClaims(token)
-                            .getPayload();
-
-            String username =
-                    claims.getSubject();
-
-            requestContext.setProperty(
-                    "username",
-                    username);
+            String username = claims.getSubject();
+            requestContext.setProperty("username", username);
 
         } catch (Exception e) {
-
             requestContext.abortWith(
-                    jakarta.ws.rs.core.Response
-                            .status(401)
-                            .build());
+                    jakarta.ws.rs.core.Response.status(401).build());
         }
+
     }
 }
