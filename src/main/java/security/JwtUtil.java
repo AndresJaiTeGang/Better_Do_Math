@@ -12,10 +12,10 @@ import java.util.Date;
 
 public class JwtUtil {
 
-    private static final Key KEY =
-            Keys.hmacShaKeyFor(
-                    "abcdefghijklmnopqrstuvwxyz123456"
-                    .getBytes());
+    public static final Key KEY =
+        Keys.hmacShaKeyFor(
+                "abcdefghijklmnopqrstuvwxyz123456"
+                .getBytes());
 
     public static String generate(String username) {
 
