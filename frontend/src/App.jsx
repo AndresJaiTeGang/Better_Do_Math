@@ -12,6 +12,9 @@ from './pages/DashboardPage'
 import ExercisePage
 from './pages/ExercisePage'
 
+import ProtectedRoute
+from './components/ProtectedRoute'
+
 function App() {
 
     return (
@@ -25,12 +28,20 @@ function App() {
 
             <Route
                 path="/dashboard"
-                element={<DashboardPage />}
+                element={
+                    <ProtectedRoute>
+                        <DashboardPage />
+                    </ProtectedRoute>
+                }
             />
 
             <Route
                 path="/exercise"
-                element={<ExercisePage />}
+                element={
+                    <ProtectedRoute>
+                        <ExercisePage />
+                    </ProtectedRoute>
+                }
             />
 
         </Routes>
