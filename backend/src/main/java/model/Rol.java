@@ -6,5 +6,13 @@ package model;
 
 public enum Rol {
     ADMIN,
-    ESTUDIANTE
+    ESTUDIANTE;
+
+    public static Rol getADMIN() {
+        return ADMIN;
+    }
+
+    public static Rol getESTUDIANTE() {
+        return ESTUDIANTE;
+    }
 }

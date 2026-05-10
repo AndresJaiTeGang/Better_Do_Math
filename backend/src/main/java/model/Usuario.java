@@ -10,6 +10,26 @@ import java.util.List;
 @Entity
 public class Usuario {
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Resultado> getResultados() {
+        return resultados;
+    }
+
+    public void setResultados(List<Resultado> resultados) {
+        this.resultados = resultados;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
