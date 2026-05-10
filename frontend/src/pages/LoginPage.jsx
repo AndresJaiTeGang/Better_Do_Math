@@ -49,7 +49,7 @@ function LoginPage() {
 
         <div>
 
-            <h1>Math LMS</h1>
+            <h1>Better Do Math</h1>
 
             <input
                 placeholder="Usuario"
