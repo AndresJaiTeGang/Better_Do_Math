@@ -18,6 +18,12 @@ import ProtectedRoute
 import RegisterPage
   from './pages/RegisterPage'
 
+import AdminPage
+  from './pages/AdminPage'
+
+import AdminRoute
+  from './components/AdminRoute'
+
 function App() {
 
   return (
@@ -50,6 +56,15 @@ function App() {
       <Route
         path="/register"
         element={<RegisterPage />}
+      />
+
+      <Route
+        path="/admin"
+        element={
+          <AdminRoute>
+            <AdminPage />
+          </AdminRoute>
+        }
       />
 
     </Routes>
