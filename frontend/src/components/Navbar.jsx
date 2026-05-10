@@ -1,16 +1,18 @@
 import { useContext }
-from "react";
+    from "react";
 
-import { Link,
-         useNavigate }
-from "react-router-dom";
+import {
+    Link,
+    useNavigate
+}
+    from "react-router-dom";
 
 import { AuthContext }
-from "../context/AuthContext";
+    from "../context/AuthContext";
 
 function Navbar() {
 
-    const { logout } =
+    const { logout, role } =
         useContext(AuthContext);
 
     const navigate =
@@ -42,6 +44,15 @@ function Navbar() {
             <button onClick={exit}>
                 Logout
             </button>
+
+            {
+                role === "ADMIN" && (
+
+                    <Link to="/admin">
+                        Admin
+                    </Link>
+                )
+            }
 
         </nav>
     );
