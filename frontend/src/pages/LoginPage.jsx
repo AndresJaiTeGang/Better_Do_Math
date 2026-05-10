@@ -71,6 +71,16 @@ function LoginPage() {
 
             </button>
 
+            <p>
+
+                ¿No tienes cuenta?
+
+                <a href="/register">
+                    <p>Registrarse</p>
+                </a>
+
+            </p>
+
         </div>
     );
 }
