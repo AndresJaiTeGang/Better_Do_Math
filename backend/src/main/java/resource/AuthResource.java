@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package resource;
 
+import dto.AuthResponseDTO;
 import dto.LoginDTO;
 import dto.RegisterDTO;
 import jakarta.persistence.*;
@@ -22,6 +19,7 @@ public class AuthResource {
 
     private EntityManagerFactory emf
             = Persistence.createEntityManagerFactory("mathPU");
+    private Object token;
 
     @POST
     @Path("/login")
@@ -67,6 +65,10 @@ public class AuthResource {
                     .build();
         }
 
-        return Response.ok().build();
+        return Response.ok(
+                new AuthResponseDTO(
+                        token,
+                        user.getRol().name())
+        ).build();
     }
 }

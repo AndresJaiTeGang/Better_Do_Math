@@ -1,14 +1,14 @@
 import { useState, useContext }
-from "react";
+    from "react";
 
 import { useNavigate }
-from "react-router-dom";
+    from "react-router-dom";
 
 import { AuthContext }
-from "../context/AuthContext";
+    from "../context/AuthContext";
 
 import * as authService
-from "../services/authService";
+    from "../services/authService";
 
 function LoginPage() {
 
@@ -27,23 +27,23 @@ function LoginPage() {
     const handleLogin =
         async () => {
 
-        try {
+            try {
 
-            const token =
-                await authService.login(
-                    username,
-                    password
-                );
+                const tokenData =
+                    await authService.login(
+                        username,
+                        password
+                    );
 
-            login(token);
+                login(tokenData);
 
-            navigate("/dashboard");
+                navigate("/dashboard");
 
-        } catch {
+            } catch {
 
-            alert("Credenciales inválidas");
-        }
-    };
+                alert("Credenciales inválidas");
+            }
+        };
 
     return (
 
