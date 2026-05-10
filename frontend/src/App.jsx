@@ -15,6 +15,9 @@ import ExercisePage
 import ProtectedRoute
   from './components/ProtectedRoute'
 
+import RegisterPage
+  from './pages/RegisterPage'
+
 function App() {
 
   return (
@@ -42,6 +45,11 @@ function App() {
             <ExercisePage />
           </ProtectedRoute>
         }
+      />
+
+      <Route
+        path="/register"
+        element={<RegisterPage />}
       />
 
     </Routes>
