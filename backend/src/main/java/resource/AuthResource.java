@@ -19,7 +19,6 @@ public class AuthResource {
 
     private EntityManagerFactory emf
             = Persistence.createEntityManagerFactory("mathPU");
-    private Object token;
 
     @POST
     @Path("/login")
